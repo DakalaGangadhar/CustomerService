@@ -117,7 +117,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/api/servicerequest/customer-updateservicerequest",
+      "DownstreamPathTemplate": "/api/ServiceRequest/customer-updateservicerequest",
       "DownstreamScheme": "http",
       "ServiceName": "customerrequestService",
       "UpstreamPathTemplate": "/api/gateway/servicerequest/customer-updateservicerequest",

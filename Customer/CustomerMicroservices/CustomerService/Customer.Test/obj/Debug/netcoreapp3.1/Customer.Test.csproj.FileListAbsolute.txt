@@ -1,4 +1,9 @@
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\CoverletSourceRootsMapping
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.csproj.AssemblyReference.cache
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.AssemblyInfoInputs.cache
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.AssemblyInfo.cs
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.csproj.CoreCompileInputs.cache
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\testhost.dll
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\CustomerRequest.deps.json
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\CustomerRequest.runtimeconfig.json
@@ -170,11 +175,6 @@ D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debu
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\Common.pdb
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\CustomerRequest.pdb
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\bin\Debug\netcoreapp3.1\Customer.pdb
-D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.csproj.AssemblyReference.cache
-D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.GeneratedMSBuildEditorConfig.editorconfig
-D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.AssemblyInfoInputs.cache
-D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.AssemblyInfo.cs
-D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.csproj.CoreCompileInputs.cache
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.csproj.CopyComplete
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.dll
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer.Test\obj\Debug\netcoreapp3.1\Customer.Test.pdb

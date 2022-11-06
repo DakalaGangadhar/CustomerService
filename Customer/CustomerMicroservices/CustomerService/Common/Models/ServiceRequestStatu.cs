@@ -9,6 +9,8 @@ namespace Common.Models
     {
        [Key]
        public int statusId { get; set; }
-       public string statusname { get; set; }
+        [Required]
+        [MaxLength(20)]
+        public string statusname { get; set; }
     }
 }

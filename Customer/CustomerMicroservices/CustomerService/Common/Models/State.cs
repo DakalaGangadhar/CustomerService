@@ -9,6 +9,8 @@ namespace Common.Models
     {
         [Key]
         public int stateId { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string statename { get; set; }
         public int cId { get; set; }
     }

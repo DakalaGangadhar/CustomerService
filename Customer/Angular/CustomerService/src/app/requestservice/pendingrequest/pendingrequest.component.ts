@@ -55,6 +55,7 @@ export class PendingrequestComponent implements OnInit {
     this.isSearchRequest=false;
     this.isUpdateRequest=true;
     this.GetServiceRequestDataModel.isbtn=false;
+    this.GetServiceRequestDataModel=new GetServiceRequestDataModel();
   }
   GetPendingServiceRequest(){   
     this.showLoader=true;
@@ -171,9 +172,10 @@ this.isUpdateRequest=false;
   pendinggridEditSuccess(input:any){
     this.showLoader=false;
     this.GetServiceRequestDataModel.isbtn=true;
-    this.GetServiceRequestDataModel.category=input.category;
+    //this.GetServiceRequestDataModel.category=input.category;
     this.GetServiceRequestDataModel.description=input.description;
     this.GetServiceRequestDataModel.srId=input.srId;
+    this.GetServiceRequestDataModel.srcId=input.srcId;
     console.log("GetServiceRequestDataModel",this.GetServiceRequestDataModel);
     this.isCloseRequest=false;
     this.isPeningRequest=false;

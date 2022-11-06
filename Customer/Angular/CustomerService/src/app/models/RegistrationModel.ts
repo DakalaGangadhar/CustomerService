@@ -19,7 +19,7 @@ export class RegistrationModel{
     constructor(){
     var _builder=new FormBuilder();
     this.formCustomerGroup=_builder.group({
-        CustomerName:new FormControl('',Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+$")])),
+        CustomerName:new FormControl('',Validators.compose([Validators.required,Validators.pattern("^[a-zA-Z ]+")])),
         CustomerEmail:new FormControl('',Validators.compose([Validators.required,Validators.email])),        
         CustomerPhoneNumber:new FormControl('',Validators.compose([Validators.required,Validators.pattern("[0-9]+")])),
         CustomerPanCard:new FormControl('',Validators.compose([Validators.required,Validators.pattern("[A-Z]{5}[0-9]{4}[A-Z]{1}")])),
@@ -29,14 +29,21 @@ export class RegistrationModel{
         CustomerDistrict:new FormControl('',Validators.compose([Validators.required])),
         CustomerAddress:new FormControl('',Validators.compose([Validators.required])),
         CustomerPassword:new FormControl('',Validators.compose([Validators.required,Validators.pattern("[0-9]+")])),
-        ConfirmCustomerPassword:['', [Validators.required,,Validators.minLength(3)]],
+        ConfirmCustomerPassword:new FormControl('',Validators.compose([Validators.required,Validators.pattern("[0-9]+")])),
    
  
-}, { validator: this.passwordMatchValidator });
+},{validator: this.checkIfMatchingPasswords('CustomerPassword', 'ConfirmCustomerPassword')});
     }
-    passwordMatchValidator=(g: FormGroup | any)=> {
-        g.controls['ConfirmCustomerPassword'].setErrors(g.get('CustomerPassword').value === g.get('ConfirmCustomerPassword').value
-           ? g.controls['ConfirmCustomerPassword'].errors : {'notSame': true});
-        return g;
+    checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+        return (group: FormGroup) => {
+          let passwordInput = group.controls[passwordKey],
+              passwordConfirmationInput = group.controls[passwordConfirmationKey];
+          if (passwordInput.value !== passwordConfirmationInput.value) {
+            return passwordConfirmationInput.setErrors({notEquivalent: true})
+          }
+          else {
+              return passwordConfirmationInput.setErrors(null);
+          }
+        }
       }
 }

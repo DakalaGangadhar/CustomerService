@@ -216,6 +216,7 @@ namespace CustomerRequest.Services
                                           where (sr.srId == srId)
                                           select new
                                           {
+                                              srcId=sr.srcId,
                                               srId = sr.srId,
                                               description = sr.description,
                                               category = c.categoryname,
@@ -238,12 +239,11 @@ namespace CustomerRequest.Services
             dynamic update = null;
             try
             {                
-                int id = Convert.ToInt32(serviceRequestDataModel?.Categoty);
                 var registration = db.Registrations.Where(x => x.email == serviceRequestDataModel.Email).FirstOrDefault();
                 update = db.ServiceRequests.Where(x => x.srId == serviceRequestDataModel.SrId).FirstOrDefault();
                 var data = (from c in db.ServiceRequestCategories
                             join a in db.ServiceRequestAssigns on c.srcId equals a.srcId
-                            where (c.srcId == id)
+                            where (c.srcId == serviceRequestDataModel.Categoty)
                             select new
                             {
                                 assignId =a.assignId,

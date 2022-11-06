@@ -9,6 +9,8 @@ namespace Common.Models
     {
         [Key]
         public int districtId { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string districtname { get; set; }
         public int stateId { get; set; }
     }

@@ -9,9 +9,15 @@ namespace Common.Models
     {
         [Key]
         public int assignId { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string assignname { get; set; }
         public int srcId { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string email { get; set; }
+        [Required]
+        [MaxLength(20)]
         public string password { get; set; }
     }
 }

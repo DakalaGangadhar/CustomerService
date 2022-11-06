@@ -15,12 +15,14 @@ style="background-image: url('/assets/customerservice.webp');">
                 <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Create Request Form</h3>
               </ng-template>
                 <div class="form-group">    
-                  <span class="validspan" *ngIf="!CreatRequest.formUserGroup.controls['Categoty'].valid && 
-                  CreatRequest.formUserGroup.controls['Categoty']?.touched"> Category is required</span>                     
+                     <label>Select Service Request Category:</label>  <br/>
+                     <span class="validspan" *ngIf="!CreatRequest.formUserGroup.controls['Categoty'].valid && 
+                  CreatRequest.formUserGroup.controls['Categoty']?.touched"> Category is required</span>              
                     <select name="Categoty" formControlName="Categoty" placeholder="Select Service Request Category" class="form-control"  aria-label="Default select example" [(ngModel)]="CreatRequest.Categoty">
                       <option value="">Select Service Request Category</option>
                       <option *ngFor="let dropdowndata of ServiceRequestDropDown" [value]="dropdowndata.srcId">{{dropdowndata.categoryname}}</option>
-                    </select>           
+                    </select>   
+                              
                       <div class="form-group mt-1">                
                           <textarea name="Description" formControlName="Description" class="form-control"  placeholder="Enter Request Description"  type="text" [(ngModel)]="CreatRequest.Description"></textarea> 
                           <span class="validspan" *ngIf="!CreatRequest.formUserGroup.controls['Description'].valid && 
@@ -35,8 +37,8 @@ style="background-image: url('/assets/customerservice.webp');">
                 </div>
                 
                 <ng-template #other_content>
-                  <button  class="btn btn-primary" (click)="createRequest()" [disabled]="!(CreatRequest.formUserGroup.valid)">Create Request</button>
-           
+                  <button  class="btn btn-primary" (click)="createRequest()" [disabled]="!(CreatRequest.formUserGroup.valid)">Create Request</button><span style="padding-right: 5px;"></span>
+                  <button  class="btn btn-secondary" (click)="closeUpdateRequest()">Close</button>
                 </ng-template>
                          
                

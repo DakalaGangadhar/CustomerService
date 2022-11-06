@@ -9,6 +9,8 @@ namespace Common.Models
     {
         [Key]
         public int cId { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string countryname { get; set; }
     }
 }

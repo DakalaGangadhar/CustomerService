@@ -88,3 +88,4 @@ D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer\obj\Debug\net
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer\obj\Debug\netcoreapp3.1\Customer.dll
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer\obj\Debug\netcoreapp3.1\Customer.pdb
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer\obj\Debug\netcoreapp3.1\Customer.genruntimeconfig.cache
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Customer\obj\Debug\netcoreapp3.1\Customer.csproj.CopyComplete

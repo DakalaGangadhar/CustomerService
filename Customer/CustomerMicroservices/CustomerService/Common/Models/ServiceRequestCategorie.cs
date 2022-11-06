@@ -9,6 +9,8 @@ namespace Common.Models
     {
         [Key]
         public int srcId { get; set; }
+        [Required]
+        [MaxLength(100)]
         public string categoryname { get; set; }
     }
 }

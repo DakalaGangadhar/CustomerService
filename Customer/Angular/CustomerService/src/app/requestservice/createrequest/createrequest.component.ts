@@ -40,6 +40,7 @@ export class CreaterequestComponent implements OnInit {
     this.isbtn=_griddata.isbtn;
     this.CreatRequest.Description=_griddata.description;
     this.CreatRequest.srId=_griddata.srId;
+    this.CreatRequest.Categoty=_griddata.srcId;
     console.log("grid-data loading",this.gridData);
     
   }
@@ -51,6 +52,7 @@ export class CreaterequestComponent implements OnInit {
   @Output("update-request")
   _updateemitemitter:EventEmitter<any>=new EventEmitter<any>();
   UpdateRequest(){
+    
     this._updateemitemitter.emit(this.CreatRequest);
   }
   closeUpdateRequest(){
