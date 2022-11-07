@@ -159,3 +159,27 @@
   <div>
     <img *ngIf="showLoader" class="mx-auto d-block" src="/assets/loading-gif.gif" width="60" height="60" alt="loader">
   </div>
+  <hr />
+  <div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">{{popupHeaderMsg}}</h4>
+    </div>
+    <div class="modal-body">
+      <p>{{popupDisplayMsg}}</p>
+  
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success"
+          (click)="closePopup()">
+      Continue
+      </button>
+    </div>
+    </div>
+  </div>
+  </div>

@@ -76,7 +76,7 @@ export class PendingrequestComponent implements OnInit {
       Email:this.Email,
       Status:3
     }
-    this._service.GetPendingServiceRequestData(data).subscribe(res=>this.GetCloseServiceRequestSuccess(res),res=>console.log(res));
+    this._service.GetCloseServiceRequestData(data).subscribe(res=>this.GetCloseServiceRequestSuccess(res),res=>console.log(res));
   }
   GetPendingServiceRequestSuccess(data:any){   
     this.navitem1='';

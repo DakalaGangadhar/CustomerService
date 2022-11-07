@@ -23,6 +23,10 @@ export class RegistrationComponent implements OnInit {
   public showLoader:boolean=false;
   public datetest:any;
   public dataOfDate:any='';
+  public displayStyle = "none";
+  public popupDisplayMsg:string='';
+  public popupHeaderMsg:string='';
+  public requestId:number=0;
   constructor(private _router:Router,private http:HttpClient,private _service:RegistrationService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -61,7 +65,10 @@ export class RegistrationComponent implements OnInit {
     if(data.token=='already'){
       this.isemailFlag=true;
     }else{
-      this._router.navigate(['home/login']);
+      this.popupHeaderMsg="";
+    this.popupDisplayMsg="Dear Customer your registered successfully";
+      this. openPopup(); 
+
     }
     
   }
@@ -148,5 +155,13 @@ export class RegistrationComponent implements OnInit {
   }
   closeUpdateCustomerProfile(){
     this._router.navigate(['customer/servicerequest']);
+  }
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+    this._router.navigate(['home/login']);
+    
   }
 }

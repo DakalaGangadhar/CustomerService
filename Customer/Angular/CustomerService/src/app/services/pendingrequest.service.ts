@@ -26,6 +26,22 @@ export class PendingrequestService {
         })
       );
   }
+  GetCloseServiceRequestData(data:any){
+
+    return this.http.post(this._api.GetPendingServiceRequest, data)
+      .pipe(map((data: any) => {     
+        return data;
+      })
+      ,
+       catchError((error) => {    // handle error
+         
+          if (error.status == 404) {
+            //Handle Response code here
+          }
+          return throwError(error);
+        })
+      );
+  }
   SearchServiceRequestData(data:any){
 
     return this.http.post(this._api.SearchServiceRequestUrl, data)

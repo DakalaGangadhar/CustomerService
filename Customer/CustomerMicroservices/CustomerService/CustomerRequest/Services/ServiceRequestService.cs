@@ -27,7 +27,7 @@ namespace CustomerRequest.Services
             dynamic data = null;
             try
             {
-                data= db.ServiceRequestCategories.ToList();
+                data = db.ServiceRequestCategories.ToList();
                 return mapper.Map<List<ServiceRequestCategorieDto>>(data);
             }
             catch (Exception ex)
@@ -92,6 +92,7 @@ namespace CustomerRequest.Services
                                     join state in db.States on r.stateId equals state.stateId
                                     join d in db.Districts on r.districtId equals d.districtId
                                     where (sr.registrationId == data.registrationId  && srs.statusId== serviceRequestDataModel.Status)
+                                     orderby sr.srId descending
                                     select new
                                     {
                                         srId = sr.srId,
@@ -284,6 +285,7 @@ namespace CustomerRequest.Services
                                           join state in db.States on r.stateId equals state.stateId
                                           join d in db.Districts on r.districtId equals d.districtId
                                           where (sr.registrationId == data.registrationId)
+                                          orderby sr.srId descending
                                           select new
                                           {
                                               srId = sr.srId,
@@ -327,6 +329,7 @@ namespace CustomerRequest.Services
                                           join state in db.States on r.stateId equals state.stateId
                                           join d in db.Districts on r.districtId equals d.districtId
                                           where (sr.registrationId == data.registrationId && (srs.statusId == serviceRequestDataModel.Status || srs.statusId == 5))
+                                          orderby sr.srId descending
                                           select new
                                           {
                                               srId = sr.srId,

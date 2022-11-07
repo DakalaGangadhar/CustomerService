@@ -10,3 +10,4 @@ D:\UseCase\Customer\CustomerMicroservices\CustomerService\Common\obj\Debug\netco
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Common\obj\Debug\netcoreapp3.1\Common.dll
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Common\obj\Debug\netcoreapp3.1\Common.pdb
 D:\UseCase\Customer\CustomerMicroservices\CustomerService\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+D:\UseCase\Customer\CustomerMicroservices\CustomerService\Common\obj\Debug\netcoreapp3.1\Common.csproj.AssemblyReference.cache

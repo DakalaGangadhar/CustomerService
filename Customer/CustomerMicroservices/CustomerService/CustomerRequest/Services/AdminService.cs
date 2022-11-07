@@ -62,6 +62,7 @@ namespace CustomerRequest.Services
                                           join state in db.States on r.stateId equals state.stateId
                                           join d in db.Districts on r.districtId equals d.districtId
                                           where (a.assignId == data.assignId && sr.statusId==1)
+                                          orderby sr.srId descending
                                           select new
                                           {
                                               srId = sr.srId,
