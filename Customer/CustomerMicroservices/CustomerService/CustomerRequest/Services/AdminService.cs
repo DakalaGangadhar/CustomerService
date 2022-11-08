@@ -32,7 +32,7 @@ namespace CustomerRequest.Services
             try
             {
                 var userdata = AuthenticateUser(registration);
-                if (registration != null)
+                if (userdata != null)
                 {
                     tokenString = GenerateToken(userdata);
                     return tokenString;
@@ -52,7 +52,7 @@ namespace CustomerRequest.Services
             List<ServiceRequestAllDataModel> res = new List<ServiceRequestAllDataModel>();
             try
             {
-                var data = db.ServiceRequestAssigns.Where(x => x.email == registration.email).FirstOrDefault();
+                var data = db.ServiceRequestAssigns?.Where(x => x.email == registration.email).FirstOrDefault();
                 var servicerequestdata = (from r in db.Registrations
                                           join sr in db.ServiceRequests on r.registrationId equals sr.registrationId
                                           join srs in db.ServiceRequestStatus on sr.statusId equals srs.statusId
@@ -98,10 +98,13 @@ namespace CustomerRequest.Services
             dynamic data = null;
             try
             {
-                data = db.ServiceRequests.Where(x => x.srId == srId).FirstOrDefault();
-                data.statusId = 3;
-                db.ServiceRequests.Update(data);
-                db.SaveChanges();
+                data = db.ServiceRequests?.Where(x => x.srId == srId).FirstOrDefault();
+                if (data!=null)
+                {
+                    data.statusId = 3;
+                    db.ServiceRequests.Update(data);
+                    db.SaveChanges();
+                }               
                 return mapper.Map<ServiceRequestDto>(data);
 
             }
@@ -133,7 +136,8 @@ namespace CustomerRequest.Services
         }
         private ServiceRequestAssign AuthenticateUser(CustomerLogin registration)
         {
-            if (db.ServiceRequestAssigns.Any(x => x.email == registration.email && x.password == registration.password))
+            var data = db.ServiceRequestAssigns?.Where(x => x.email == registration.email && x.password == registration.password).FirstOrDefault();
+            if (data!=null)
             {
                 return db.ServiceRequestAssigns.Where(x => x.email == registration.email && x.password == registration.password).FirstOrDefault();
             }

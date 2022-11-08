@@ -20,9 +20,9 @@
             <section class="h-100 gradient-custom">
                 <div class="container py-5 h-100">
                     <div  class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-10 col-xl-8">                          
+                        <div class="col-lg-10 col-xl-10">                          
                             <div class="card" style="border-radius: 10px;">
-                                <div class="card-header px-4 py-5">
+                                <div class="card-header px-4 py-3">
                                     <h5 class="text-muted mb-0">Close Request Data For, <span style="color: #a8729a;">{{customerName}}</span>!
                                     </h5>
                                 </div>
@@ -34,26 +34,26 @@
                                                     <div class="row">
                                                         <span><em class="fw-bold">Service Request ID: </em>{{pending.srId}}</span>
                                                         <span><em>Issue Type: </em>{{pending.category}}</span>                                                  
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>AssignTo:</em></small>{{pending.assignto}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>AssignTo: </em></small>{{pending.assignto}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Status:</em></small>{{pending.status}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Status: </em></small>{{pending.status}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Country:</em></small>{{pending.country}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Country: </em></small>{{pending.country}}</span>
                                                         </div>                                           
                                                        
                                                     </div>
                                                     <div class="row">                                                                                             
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>State:</em></small>{{pending.state}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>State: </em></small>{{pending.state}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>District:</em></small>{{pending.district}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Request Date: </em></small>{{pending.date}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Address:</em></small>{{pending.address}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Address: </em></small>{{pending.address}}</span>
                                                         </div>
                                                         <span><em>Description: </em>{{pending.description}}</span>
                                                     </div>
@@ -98,7 +98,7 @@
             <section class="h-100 gradient-custom">
                 <div class="container py-5 h-100">
                     <div  class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-10 col-xl-8">
+                        <div class="col-lg-10 col-xl-10">
                             <div class="mb-2">
                                 <form #searchData = "ngForm" (ngSubmit) = "searchDataSubmit(searchData.value)" >
                                     <input type = "text" name = "searchid" placeholder = "Search Request Id" autocomplete="off" ngModel>                                  
@@ -107,7 +107,7 @@
                             </div>                            
 
                             <div class="card" style="border-radius: 10px;">
-                                <div class="card-header px-4 py-5">
+                                <div class="card-header px-4 py-3">
                                     <h5 class="text-muted mb-0">Pending Request Data For, <span style="color: #a8729a;">{{customerName}}</span>!
                                     </h5>
                                 </div>
@@ -119,26 +119,26 @@
                                                     <div class="row">
                                                         <span><em class="fw-bold">Service Request ID: </em>{{pending.srId}}</span>
                                                         <span><em>Issue Type: </em>{{pending.category}}</span>                                                  
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em >AssignTo:</em></small>{{pending.assignto}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em >AssignTo: </em></small>{{pending.assignto}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Status:</em></small>{{pending.status}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Status: </em></small>{{pending.status}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Country:</em></small>{{pending.country}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Country: </em></small>{{pending.country}}</span>
                                                         </div>                                           
                                                        
                                                     </div>
                                                     <div class="row">                                                                                             
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>State:</em></small>{{pending.state}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>State: </em></small>{{pending.state}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>District:</em></small>{{pending.district}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Request Date: </em></small>{{pending.date}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Address:</em></small>{{pending.address}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Address: </em></small>{{pending.address}}</span>
                                                         </div>
                                                         <span><em>Description: </em>{{pending.description}}</span>
                                                     </div>
@@ -184,9 +184,9 @@
             <section class="h-100 gradient-custom">
                 <div class="container py-5 h-100">
                     <div  class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-10 col-xl-8">
+                        <div class="col-lg-10 col-xl-10">
                             <div class="card" style="border-radius: 10px;">
-                                <div class="card-header px-4 py-5">
+                                <div class="card-header px-4 py-3">
                                     <h5 class="text-muted mb-0">Close Request Data By Search, <span style="color: #a8729a;">{{customerName}}</span>!
                                     </h5>
                                 </div>
@@ -198,26 +198,26 @@
                                                     <div class="row">
                                                         <span><em class="fw-bold">Service Request ID: </em>{{pending.srId}}</span>
                                                         <span><em>Issue Type: </em>{{pending.category}}</span>                                                  
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>AssignTo:</em></small>{{pending.assignto}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>AssignTo: </em></small>{{pending.assignto}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Status:</em></small>{{pending.status}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Status: </em></small>{{pending.status}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Country:</em></small>{{pending.country}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Country: </em></small>{{pending.country}}</span>
                                                         </div>                                           
                                                        
                                                     </div>
                                                     <div class="row">                                                                                             
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>State:</em></small>{{pending.state}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>State: </em></small>{{pending.state}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>District:</em></small>{{pending.district}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Request Date: </em></small>{{pending.date}}</span>
                                                         </div>
-                                                        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
-                                                            <span class="price"><small><em>Address:</em></small>{{pending.address}}</span>
+                                                        <div class="col-md-4 px-4">
+                                                            <span class="price"><small><em>Address: </em></small>{{pending.address}}</span>
                                                         </div>
                                                         <span><em>Description: </em>{{pending.description}}</span>  
                                                     </div>
@@ -263,7 +263,7 @@
        
        
     </div>
-    <hr />
+   
 <div
 class="modal"
 tabindex="-1"

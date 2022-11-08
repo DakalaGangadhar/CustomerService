@@ -11,4 +11,5 @@ export class PendingRequestModel{
     phonenumber:string='';
     state:string='';
     status:string='';
+    date:string='';
 }

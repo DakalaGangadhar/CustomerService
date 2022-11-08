@@ -29,29 +29,33 @@ namespace Customer.Services
         {
             string str = string.Empty;
             var tokenString = str;
+            dynamic userdata = null;
             try
             {
-                var customer = db.Registrations.Where(x => x.email == registration.CustomerEmail).FirstOrDefault();
+                var customer = db.Registrations?.Where(x => x.email == registration.CustomerEmail).FirstOrDefault();
                 if (customer != null)
                 {
                     tokenString = "already";
                 }
                 else
-                {
-                    Registration registrationData = new Registration();
-                    registrationData.customername = registration.CustomerName;
-                    registrationData.contactnumber = registration.CustomerPhoneNumber;
-                    registrationData.address = registration.CustomerAddress;
-                    registrationData.cId = Convert.ToInt32(registration.CustomerCountry);
-                    registrationData.districtId = Convert.ToInt32(registration.CustomerDistrict);
-                    registrationData.stateId = Convert.ToInt32(registration.CustomerState);
-                    registrationData.pancard = registration.CustomerPanCard;
-                    registrationData.password = registration.CustomerPassword;
-                    registrationData.email = registration.CustomerEmail.ToLower(new CultureInfo("en-US", false)); 
-                    registrationData.dob = Convert.ToDateTime(registration.CustomerDOB);
-                    registrationData.registrationDate = DateTime.UtcNow;
-                    var userdata = AuthenticateUser(registrationData, IsRegister);
-                    if (registration != null)
+                {                    
+                    if (registration!=null)
+                    {                       
+                        Registration registrationData = new Registration();
+                        registrationData.customername = registration.CustomerName;
+                        registrationData.contactnumber = registration.CustomerPhoneNumber;
+                        registrationData.address = registration.CustomerAddress;
+                        registrationData.cId = Convert.ToInt32(registration.CustomerCountry);
+                        registrationData.districtId = Convert.ToInt32(registration.CustomerDistrict);
+                        registrationData.stateId = Convert.ToInt32(registration.CustomerState);
+                        registrationData.pancard = registration.CustomerPanCard;
+                        registrationData.password = registration.CustomerPassword;
+                        registrationData.email = registration.CustomerEmail.ToLower(new CultureInfo("en-US", false));
+                        registrationData.dob = Convert.ToDateTime(registration.CustomerDOB);
+                        registrationData.registrationDate = DateTime.UtcNow;
+                        userdata = AuthenticateUser(registrationData, IsRegister);
+                    }                    
+                    if (userdata != null)
                     {
                         tokenString = GenerateToken(userdata);
                         return tokenString;
@@ -77,7 +81,7 @@ namespace Customer.Services
                 loginData.email = registration.email;
                 loginData.password = registration.password;
                 var userdata = AuthenticateUser(loginData, IsRegister);
-                if (registration != null)
+                if (userdata != null)
                 {
                     tokenString = GenerateToken(userdata);
                     return tokenString;
@@ -96,7 +100,7 @@ namespace Customer.Services
             List<Country> countries = new List<Country>();
             try
             {                
-                countries = db.Countrys.ToList();
+                countries = db.Countrys?.ToList();
                 return mapper.Map<List<CountryDto>>(countries);
             }
             catch (Exception ex)
@@ -112,7 +116,7 @@ namespace Customer.Services
             List<State> states = new List<State>();
             try
             {
-                states = db.States.Where(x => x.cId == countryid).ToList();
+                states = db.States?.Where(x => x.cId == countryid).ToList();
                 return mapper.Map<List<StateDto>>(states);
             }
             catch (Exception ex)
@@ -128,7 +132,7 @@ namespace Customer.Services
             dynamic data = null; 
             try
             {
-                 data = db.Districts.Where(x => x.stateId == stateid).ToList();
+                 data = db.Districts?.Where(x => x.stateId == stateid).ToList();
                 return mapper.Map<List<DistrictDto>>(data);
             }
             catch (Exception ex)
@@ -141,15 +145,16 @@ namespace Customer.Services
         {
             if (IsRegister)
             {
-                db.Registrations.Add(registration);
+                db.Registrations?.Add(registration);
                 db.SaveChanges();
                 return registration;
             }
             else
             {
-                if (db.Registrations.Any(x => x.email == registration.email && x.password == registration.password))
+                var data= db.Registrations?.Where(x => x.email == registration.email && x.password == registration.password).FirstOrDefault();
+                if (data!=null)
                 {
-                    return db.Registrations.Where(x => x.email == registration.email && x.password == registration.password).FirstOrDefault();
+                    return db.Registrations?.Where(x => x.email == registration.email && x.password == registration.password).FirstOrDefault();
                 }
                 else
                 {
@@ -176,7 +181,7 @@ namespace Customer.Services
             dynamic data = null;
             try
             {
-                 data = db.Registrations.Where(x => x.email == serviceRequestDataModel.Email).FirstOrDefault(); 
+                 data = db.Registrations?.Where(x => x.email == serviceRequestDataModel.Email).FirstOrDefault(); 
                 return mapper.Map<RegistrationDto>(data);
             }
             catch (Exception ex)
@@ -191,21 +196,24 @@ namespace Customer.Services
             dynamic registration = null;
             try
             {
-                registration = db.Registrations.Where(x => x.registrationId == registrationData.registrationId).FirstOrDefault();
-                registration.address = registrationData.CustomerAddress;
-                registration.cId = Convert.ToInt32(registrationData.CustomerCountry);
-                registration.contactnumber = registrationData.CustomerPhoneNumber;
-                registration.customername = registrationData.CustomerName;
-                registration.districtId = Convert.ToInt32(registrationData.CustomerDistrict);
-                registration.dob = Convert.ToDateTime(registrationData.CustomerDOB);
-                registration.email = registrationData.CustomerEmail;
-                registration.pancard = registrationData.CustomerPanCard;
-                registration.password = registrationData.CustomerPassword;
-                registration.registrationDate = DateTime.UtcNow;
-                registration.stateId =Convert.ToInt32( registrationData.CustomerState);
+                registration = db.Registrations?.Where(x => x.registrationId == registrationData.registrationId).FirstOrDefault();
+                if (registration!=null)
+                {
+                    registration.address = registrationData?.CustomerAddress;
+                    registration.cId = Convert.ToInt32(registrationData?.CustomerCountry);
+                    registration.contactnumber = registrationData?.CustomerPhoneNumber;
+                    registration.customername = registrationData?.CustomerName;
+                    registration.districtId = Convert.ToInt32(registrationData?.CustomerDistrict);
+                    registration.dob = Convert.ToDateTime(registrationData?.CustomerDOB);
+                    registration.email = registrationData?.CustomerEmail;
+                    registration.pancard = registrationData?.CustomerPanCard;
+                    registration.password = registrationData?.CustomerPassword;
+                    registration.registrationDate = DateTime.UtcNow;
+                    registration.stateId = Convert.ToInt32(registrationData?.CustomerState);
 
-                db.Registrations.Update(registration);
-                db.SaveChanges();
+                    db.Registrations?.Update(registration);
+                    db.SaveChanges();
+                }                 
                 return mapper.Map<RegistrationDto>(registration);
             }
             catch (Exception ex)

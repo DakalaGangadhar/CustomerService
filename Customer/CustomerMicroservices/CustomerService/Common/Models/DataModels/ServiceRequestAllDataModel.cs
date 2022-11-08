@@ -18,5 +18,7 @@ namespace Common.Models.DataModels
         public string status { get; set; }
         public string category { get; set; }
         public string assignto { get; set; }
+        public string date { get; set; }
+        
     }
 }

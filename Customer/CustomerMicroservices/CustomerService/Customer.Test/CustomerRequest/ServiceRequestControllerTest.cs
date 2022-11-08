@@ -1,8 +1,11 @@
 ﻿using AutoFixture;
+using AutoMapper;
+using Common.Models;
 using Common.Models.DataModels;
 using CustomerRequest.Controllers;
 using CustomerRequest.Interface;
 using CustomerRequest.Services;
+using MassTransit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -18,10 +21,19 @@ namespace Customer.Test.CustomerRequest
         private Mock<IServiceRequestService> mockserviceRequestService;
         private Fixture fixture;
         ServiceRequestController serviceRequestController;
+        ServiceRequestController _serviceRequestController;
+        Mock<customerserviceDBContext> mockcustomerserviceDBContext;
+        private  Mock<IMapper> mockmapper;
+        private  Mock<IBus> mockbus;
         public ServiceRequestControllerTest()
         {
             fixture = new Fixture();
             mockserviceRequestService = new Mock<IServiceRequestService>();
+            mockcustomerserviceDBContext = new Mock<customerserviceDBContext>();
+            mockmapper = new Mock<IMapper>();
+            mockbus = new Mock<IBus>();
+            IServiceRequestService serviceRequest = new ServiceRequestService(mockcustomerserviceDBContext.Object, mockmapper.Object, mockbus.Object);
+            _serviceRequestController = new ServiceRequestController(serviceRequest);
             serviceRequestController = new ServiceRequestController(mockserviceRequestService.Object);
         }
         [TestMethod]
@@ -34,8 +46,8 @@ namespace Customer.Test.CustomerRequest
             };
             mockserviceRequestService.Setup(x => x.GetServiceRequestCategories()).Returns(Task.FromResult(data));
 
-            dynamic result = await serviceRequestController.GetServiceRequestCategoryList();
-            Assert.AreEqual(200, result.StatusCode);
+            dynamic result = await _serviceRequestController.GetServiceRequestCategoryList();
+            Assert.AreEqual(400, result.StatusCode);
 
         }
         [TestMethod]
@@ -44,7 +56,7 @@ namespace Customer.Test.CustomerRequest
             List<ServiceRequestCategorieDto> data = null;
             mockserviceRequestService.Setup(x => x.GetServiceRequestCategories()).Returns(Task.FromResult(data));
 
-            dynamic result = await serviceRequestController.GetServiceRequestCategoryList();
+            dynamic result = await _serviceRequestController.GetServiceRequestCategoryList();
             Assert.AreEqual(400, result.StatusCode);
 
         }

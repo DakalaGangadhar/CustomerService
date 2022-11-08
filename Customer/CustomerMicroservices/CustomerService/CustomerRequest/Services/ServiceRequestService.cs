@@ -27,7 +27,7 @@ namespace CustomerRequest.Services
             dynamic data = null;
             try
             {
-                data = db.ServiceRequestCategories.ToList();
+                data = db.ServiceRequestCategories?.ToList();
                 return mapper.Map<List<ServiceRequestCategorieDto>>(data);
             }
             catch (Exception ex)
@@ -106,7 +106,8 @@ namespace CustomerRequest.Services
                                         description=sr.description,
                                         status = srs.statusname,
                                         category = c.categoryname,
-                                        assignto = a.assignname
+                                        assignto = a.assignname,
+                                        date = sr.createrequestdate.ToString("dd/MM/yyyy")
                                     }).ToList();
                 var jsonData = JsonConvert.SerializeObject(servicerequestdata);
                 res = JsonConvert.DeserializeObject<List<ServiceRequestAllDataModel>>(jsonData);
@@ -150,7 +151,8 @@ namespace CustomerRequest.Services
                                                   description = sr.description,
                                                   status = srs.statusname,
                                                   category = c.categoryname,
-                                                  assignto = a.assignname
+                                                  assignto = a.assignname,
+                                                  date = sr.createrequestdate.ToString("dd/MM/yyyy")
                                               }).ToList();
                     var jsonData = JsonConvert.SerializeObject(servicerequestdata);
                     res = JsonConvert.DeserializeObject<List<ServiceRequestAllDataModel>>(jsonData);
@@ -299,7 +301,8 @@ namespace CustomerRequest.Services
                                               description = sr.description,
                                               status = srs.statusname,
                                               category = c.categoryname,
-                                              assignto = a.assignname
+                                              assignto = a.assignname,
+                                              date = sr.createrequestdate.ToString("dd/MM/yyyy")
                                           }).ToList();
 
 
@@ -343,7 +346,8 @@ namespace CustomerRequest.Services
                                               description = sr.description,
                                               status = srs.statusname,
                                               category = c.categoryname,
-                                              assignto = a.assignname
+                                              assignto = a.assignname,
+                                              date=sr.createrequestdate.ToString("dd/MM/yyyy")
                                           }).ToList();
 
 

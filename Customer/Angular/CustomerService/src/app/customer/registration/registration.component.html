@@ -51,7 +51,7 @@
                     <div class="form-group mt-1">
                       <input [(ngModel)]="RegistrationModel.ConfirmCustomerPassword" formControlName="ConfirmCustomerPassword" class="form-control" placeholder="Confirm Password" type="password">  
                         <span class="validspan" style="text-align: left;" *ngIf="!RegistrationModel.formCustomerGroup.controls['ConfirmCustomerPassword'].valid && 
-                        RegistrationModel.formCustomerGroup.controls['ConfirmCustomerPassword']?.touched"> Please enter a valid password</span>                     
+                        RegistrationModel.formCustomerGroup.controls['ConfirmCustomerPassword']?.touched"> Password not matching</span>                     
                </div>
   
                   </div>              
@@ -77,6 +77,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-4 pb-2">
                       <div class="form-group mt-1">
+                        <label>Please select  date of birth:</label>
                         <input [(ngModel)]="RegistrationModel.CustomerDOB" formControlName="CustomerDOB"  class="form-control" placeholder="Date of Birth" type="date" max={{dataOfDate}}>  
                         <span class="validspan" style="text-align: left;" *ngIf="!RegistrationModel.formCustomerGroup.controls['CustomerDOB'].valid && 
                         RegistrationModel.formCustomerGroup.controls['CustomerDOB']?.touched"> Date of birth is required</span>             
@@ -85,7 +86,7 @@
                     <div class="col-md-6 mb-4 pb-2">
     
                       <div class="form-group mt-1">              
-                        
+                        <label></label>
                           <select (change)="onchangeCountry($event)" [(ngModel)]="RegistrationModel.CustomerCountry" formControlName="CustomerCountry" placeholder="Select Country" class="form-control">
                             
                             <option value="">Select Country</option>
@@ -159,7 +160,7 @@
   <div>
     <img *ngIf="showLoader" class="mx-auto d-block" src="/assets/loading-gif.gif" width="60" height="60" alt="loader">
   </div>
-  <hr />
+
   <div
   class="modal"
   tabindex="-1"
