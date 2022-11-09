@@ -34,7 +34,7 @@ describe('GridComponent', () => {
   it('should have a service request approve', async(() => {
     fixture = TestBed.createComponent(GridComponent);
     component = fixture.debugElement.componentInstance;
-    let data=component.approveGrid(2);
+    let data=component.approveGrid(8);
     expect(data).toEqual();
   }));
   it('should have a service request reject', async(() => {

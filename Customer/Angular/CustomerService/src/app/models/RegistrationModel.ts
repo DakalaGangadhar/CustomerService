@@ -9,7 +9,7 @@ export class RegistrationModel{
     ConfirmCustomerPassword:string='';
     CustomerPhoneNumber:string='';
     CustomerPanCard:string='';
-    CustomerDOB:any='28-10-2022';
+    CustomerDOB:any='';
     CustomerCountry:string='';
     CustomerState:any='';
     CustomerDistrict:any='';

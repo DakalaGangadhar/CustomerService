@@ -319,7 +319,7 @@ namespace Customer.Test.CustomerRequest
             UpdateRequestDataModel updateRequest = new UpdateRequestDataModel()
             {
                 SrId = 1,
-                Categoty = 3,
+                Categoty = "3",
                 Description = "test",
                 Email = "simple@simple.com",
             };
@@ -345,7 +345,7 @@ namespace Customer.Test.CustomerRequest
             UpdateRequestDataModel updateRequest = new UpdateRequestDataModel()
             {
                 SrId = 1,
-                Categoty = 4,
+                Categoty = "4",
                 Description = "test",
                 Email = "simple@simple.com",
             };
