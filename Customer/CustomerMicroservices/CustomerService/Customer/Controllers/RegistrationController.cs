@@ -52,9 +52,13 @@ namespace Customer.Controllers
             {
                 IActionResult response = Unauthorized();
                 string userdata = await registrationService.CustomerLogin(registration, false);
-                if (registration != null)
+                if (!string.IsNullOrEmpty(userdata))
                 {
                     response = Ok(new { token = userdata });
+                }
+                else
+                {
+                    return response = Ok(new { val = "wrong" });
                 }
                 return response;
             }

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   public popupDisplayMsg:string='';
   public popupHeaderMsg:string='';
   public requestId:number=0;
+  public isemailLogin:boolean=false;
   constructor(private _router:Router,private _service:LoginService,private _adminservice:AdminService) { }
 
   ngOnInit(): void {
@@ -54,21 +55,38 @@ export class LoginComponent implements OnInit {
   }
   CustomerLoginSuccess(input:any){
     console.log(input);
-    this.popupHeaderMsg="Customer email id: " + this.customermail;
-    this.popupDisplayMsg="Dear Customer your login successfully";
-    this.openPopup();
-    localStorage.setItem('token',input.token);
-    localStorage.setItem('email',this.customermail)  
-    this.showLoader=false;   
+    if(input.val!="wrong"){
+      this.isemailLogin=false;
+      this.popupHeaderMsg="Customer email id: " + this.customermail;
+      this.popupDisplayMsg="Dear Customer your login successfully";
+      this.openPopup();
+      localStorage.setItem('token',input.token);
+      localStorage.setItem('email',this.customermail)  
+      this.showLoader=false; 
+    }
+    else{
+      this.isemailLogin=true;
+      this.showLoader=false;
+    }
+     
      
   }
   AdminLoginSuccess(data:any){
-    this.showLoader=true;
-    this.popupHeaderMsg="Admin email id: " +this.adminmail;
-    this.popupDisplayMsg="Dear Admin your login successfully";
-    this.openPopup();
-    localStorage.setItem('token',data.token);
-    localStorage.setItem('adminemail',this.adminmail)  
+    console.log(data);
+    if(data.val!="wrong"){
+      this.isemailLogin=false;
+      this.showLoader=true;
+      this.popupHeaderMsg="Admin email id: " +this.adminmail;
+      this.popupDisplayMsg="Dear Admin your login successfully";
+      this.openPopup();
+      localStorage.setItem('token',data.token);
+      localStorage.setItem('adminemail',this.adminmail)  
+    }
+    else{
+      this.isemailLogin=true;
+      this.showLoader=false;
+    }
+    
     
   }
   navigateRegister(){
@@ -79,6 +97,9 @@ export class LoginComponent implements OnInit {
     }else{
       this._router.navigate(['home/registration']);
     }
+  }
+  changeLoginEmail(){
+    this.isemailLogin=false;
   }
   openPopup() {
     this.displayStyle = "block";

@@ -10,6 +10,8 @@ export class MasterComponent implements OnInit {
 
   constructor(private _service:LoginService) { }
 
+  public navitem1:any="";
+  public navitem2:any="";
   ngOnInit(): void {
   }
   
@@ -23,18 +25,26 @@ export class MasterComponent implements OnInit {
   }
   Logout(){
     debugger;
+    this.navitem1="";
+    this.navitem2="";
     this._service.logoutUser();
+   
     
   }
   customerRoute(){
+    this.navitem1="navitemSelect";
+    this.navitem2="";
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('adminemail') 
   }
   adminRoute(){
+    this.navitem1="";
+    this.navitem2="navitemSelect";
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('adminemail') 
   }
+  
 
 }

@@ -27,13 +27,13 @@ namespace CustomerRequest.Controllers
             {
                 IActionResult response = Unauthorized();
                 string userdata = await adminService.AdminLogin(registration);
-                if (userdata!=null)
+                if (!string.IsNullOrEmpty(userdata))
                 {
                    return response = Ok(new { token = userdata });
                 }
                 else
                 {
-                   return BadRequest();
+                    return response = Ok(new { val = "wrong" });
                 }
                
             }

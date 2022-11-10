@@ -46,10 +46,10 @@
 <div class="collapse navbar-collapse" id="mynav">
   <ul class="navbar-nav ml-auto text-center ">
       <li class="nav-item">
-          <a class="nav-link active" (click)="customerRoute()"  [routerLink]="['home/login']">Customer</a>
+          <a class="nav-link active" (click)="customerRoute()" [class]="navitem1"  [routerLink]="['home/login']">Customer</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link active" (click)="adminRoute()"   [routerLink]="['admin/login']">Admin</a>
+          <a class="nav-link active" (click)="adminRoute()"  [class]="navitem2"  [routerLink]="['admin/login']">Admin</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" ></a> 
@@ -62,5 +62,6 @@
 </div>
 </div>
 </nav>
+
     <router-outlet></router-outlet>
   

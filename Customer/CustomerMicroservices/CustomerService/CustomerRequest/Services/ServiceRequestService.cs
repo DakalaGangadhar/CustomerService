@@ -92,7 +92,7 @@ namespace CustomerRequest.Services
                                     join state in db.States on r.stateId equals state.stateId
                                     join d in db.Districts on r.districtId equals d.districtId
                                     where (sr.registrationId == data.registrationId  && srs.statusId== serviceRequestDataModel.Status)
-                                     orderby sr.srId descending
+                                     orderby sr.createrequestdate descending
                                     select new
                                     {
                                         srId = sr.srId,
@@ -138,6 +138,7 @@ namespace CustomerRequest.Services
                                               join state in db.States on r.stateId equals state.stateId
                                               join d in db.Districts on r.districtId equals d.districtId
                                               where (sr.registrationId == data.registrationId && srs.statusId == searchData.Status && sr.srId == searchId)
+                                              orderby sr.createrequestdate descending
                                               select new
                                               {
                                                   srId=sr.srId,
@@ -181,6 +182,7 @@ namespace CustomerRequest.Services
             {
                 data = db.ServiceRequests.Where(x => x.srId == srId).FirstOrDefault();
                 data.statusId = 1;
+                data.createrequestdate = DateTime.UtcNow;
                 db.ServiceRequests.Update(data);
                 db.SaveChanges();
                 return mapper.Map<ServiceRequestDto>(data);
@@ -219,7 +221,7 @@ namespace CustomerRequest.Services
                                           where (sr.srId == srId)
                                           select new
                                           {
-                                              srcId=sr.srcId,
+                                              srcId=Convert.ToString(sr.srcId),
                                               srId = sr.srId,
                                               description = sr.description,
                                               category = c.categoryname,
@@ -288,7 +290,7 @@ namespace CustomerRequest.Services
                                           join state in db.States on r.stateId equals state.stateId
                                           join d in db.Districts on r.districtId equals d.districtId
                                           where (sr.registrationId == data.registrationId)
-                                          orderby sr.srId descending
+                                          orderby sr.createrequestdate descending
                                           select new
                                           {
                                               srId = sr.srId,
@@ -333,7 +335,7 @@ namespace CustomerRequest.Services
                                           join state in db.States on r.stateId equals state.stateId
                                           join d in db.Districts on r.districtId equals d.districtId
                                           where (sr.registrationId == data.registrationId && (srs.statusId == serviceRequestDataModel.Status || srs.statusId == 5))
-                                          orderby sr.srId descending
+                                          orderby sr.createrequestdate descending
                                           select new
                                           {
                                               srId = sr.srId,

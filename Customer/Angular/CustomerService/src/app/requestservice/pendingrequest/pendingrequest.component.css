@@ -3,3 +3,6 @@
     border: rgba(65, 65, 65, 0.597);
     border-radius: 0%;
 }
+.cursorpoint{
+    cursor: pointer;
+}

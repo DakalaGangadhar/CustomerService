@@ -102,6 +102,7 @@ namespace CustomerRequest.Services
                 if (data!=null)
                 {
                     data.statusId = 3;
+                    data.createrequestdate = DateTime.UtcNow;
                     db.ServiceRequests.Update(data);
                     db.SaveChanges();
                 }               
@@ -122,6 +123,7 @@ namespace CustomerRequest.Services
             {
                 data = db.ServiceRequests.Where(x => x.srId == srId).FirstOrDefault();
                 data.statusId = 5;
+                data.createrequestdate = DateTime.UtcNow;
                 db.ServiceRequests.Update(data);
                 db.SaveChanges();
                 return mapper.Map<ServiceRequestDto>(data);
